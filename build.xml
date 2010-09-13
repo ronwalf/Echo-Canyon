@@ -57,7 +57,7 @@
 
   <target name="zip">
     <zip destfile="EchoCanyon.zip">
-      <zipfileset dir="." prefix="JChordChat">
+      <zipfileset dir="." prefix="EchoCanyon">
         <include name="build.xml"/>
         <include name="README"/>
         <include name="LICENSE"/>
