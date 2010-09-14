@@ -109,6 +109,11 @@
     <antcall target="bomb"/>
   </target>
 
+  <target name="abomb3">
+    <property name="bomb.class" value="${ns.base}.async.EchoABomb3"/>
+    <antcall target="bomb"/>
+  </target>
+
   <target name="bomb" depends="build-main">
     <property name="bomb.class" value="${ns.base}.threaded.EchoBomb1"/>
     <java classname="${bomb.class}" fork="true"
