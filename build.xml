@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <project name="Echo Canyon" default="test" basedir=".">
   <description>Echo Canyon Implementation</description>
- 
+
+  <property file="build.properties"/>
+
   <property name="main.src" location="src"/>
   <property name="main.build" location="build/main"/>
   <property name="test.src" location="test"/>
