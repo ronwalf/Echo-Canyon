@@ -92,5 +92,12 @@
     <java classname="${bomb.class}" classpath="${test.class.path}"
       failonerror="true"/>
   </target>
-  
+
+  <target name="async-server" depends="build-main">
+    
+    <java classname="${ns.base}.async.MinaEchoServer"
+      classpath="${test.class.path}"
+      failonerror="true"/>
+  </target>
+
 </project>
