@@ -7,7 +7,7 @@
   <property name="test.src" location="test"/>
   <property name="test.build" location="build/test"/>
 
-  <property name="ns.base" value="net.volus.ronwalf.phs2010.networking.echocanyon."/>
+  <property name="ns.base" value="net.volus.ronwalf.phs2010.networking.echocanyon"/>
 
   <property name="client.server.host" value="localhost"/>
   <property name="client.server.port" value="2002"/>
