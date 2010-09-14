@@ -39,12 +39,15 @@ public class EchoBomb1 {
 			}
 		}
 		
+		// Close the socket
+		socket.close();
+		
 		long end_time = System.currentTimeMillis();
 		long elapsed = end_time - start_time;
 		long rate = 1000 * bmesgs / elapsed;
 		
 		System.out.println( "Elapsed time: " + elapsed + " millis");
-		System.out.println( "Message rate: " + rate );
+		System.out.println( "Message rate: " + rate + " msgs/sec" );
 		
 	}
 }
