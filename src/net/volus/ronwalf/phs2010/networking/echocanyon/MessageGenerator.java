@@ -8,7 +8,7 @@ import java.util.List;
 public class MessageGenerator implements Iterable<String>, Iterator<String> {
 
 	private final List<String> messages;
-	private final int total;
+	public final int total;
 	private int count;
 	
 	public MessageGenerator(int total) {
