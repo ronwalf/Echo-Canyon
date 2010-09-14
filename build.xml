@@ -13,7 +13,7 @@
   <property name="client.server.port" value="2002"/>
 
   <property name="bomb.count" value="3000"/>
-  <property name="bomb.threads" value="5"/>
+  <property name="bomb.connections" value="5"/>
 
 
   <path id="main.class.path">
@@ -23,6 +23,7 @@
   </path>
 
   <path id="test.class.path">
+    <path id="main.class.path"/>
     <pathelement location="${main.build}"/>
     <pathelement location="lib/junit-4.8.2.jar"/>
   </path>
@@ -85,8 +86,14 @@
 
   <target name="bomb" depends="build-main">
     <property name="bomb.class" value="${ns.base}.threaded.EchoBomb1"/>
-    <java classname="${bomb.class}" classpath="${test.class.path}"
-      failonerror="true"/>
+    <java classname="${bomb.class}" fork="true"
+      failonerror="true">
+      <classpath refid="test.class.path"/>
+      <arg value="${client.server.host}"/>
+      <arg value="${client.server.port}"/>
+      <arg value="${bomb.count}"/>
+      <arg value="${bomb.connections}"/>
+    </java>
   </target>
   
 </project>
