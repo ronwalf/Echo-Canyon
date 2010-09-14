@@ -7,10 +7,18 @@
   <property name="test.src" location="test"/>
   <property name="test.build" location="build/test"/>
 
+  <property name="ns.base" value="net.volus.ronwalf.phs2010.networking.echocanyon."/>
+  
   <property name="server.port" value="2002"/>
   <property name="proxy.server.host" value="localhost"/>
   <property name="proxy.server.port" value="2002"/>
   <property name="proxy.port" value="2003"/>
+
+  <property name="client.server.host" value="localhost"/>
+  <property name="client.server.port" value="2002"/>
+
+  <property name="bomb.count" value="3000"/>
+  <property name="bomb.threads" value="5"/>
 
   <path id="main.class.path">
     <pathelement location="lib/mina/mina-core-2.0.0-RC1.jar"/>
@@ -79,4 +87,10 @@
     <delete dir="${test.build}"/>
   </target>
 
+  <target name="bomb" depends="build-main">
+    <property name="bomb.class" value="${ns.base}.threaded.EchoBomb1"/>
+    <java classname="${bomb.class}" classpath="${test.class.path}"
+      failonerror="true"/>
+  </target>
+  
 </project>
