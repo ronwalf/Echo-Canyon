@@ -99,9 +99,13 @@
     <antcall target="bomb"/>
   </target>
 
-
   <target name="abomb1">
     <property name="bomb.class" value="${ns.base}.async.EchoABomb1"/>
+    <antcall target="bomb"/>
+  </target>
+
+  <target name="abomb2">
+    <property name="bomb.class" value="${ns.base}.async.EchoABomb2"/>
     <antcall target="bomb"/>
   </target>
 
