@@ -7,6 +7,10 @@
   <property name="test.src" location="test"/>
   <property name="test.build" location="build/test"/>
 
+  <property name="server.port" value="2002"/>
+  <property name="proxy.server.host" value="localhost"/>
+  <property name="proxy.server.port" value="2002"/>
+  <property name="proxy.port" value="2003"/>
 
   <path id="main.class.path">
     <pathelement location="lib/mina/mina-core-2.0.0-RC1.jar"/>
@@ -74,4 +78,5 @@
     <delete dir="${main.build}"/>
     <delete dir="${test.build}"/>
   </target>
+
 </project>
