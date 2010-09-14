@@ -19,7 +19,7 @@ public class MinaEchoServer extends IoHandlerAdapter {
 	public static void main(String args[]) throws IOException {
 		IoAcceptor acceptor = new NioSocketAcceptor();
 
-		acceptor.getFilterChain().addLast("logger", new LoggingFilter());
+		//acceptor.getFilterChain().addLast("logger", new LoggingFilter());
 		acceptor.getFilterChain().addLast(
 				"codec",
 				new ProtocolCodecFilter(new TextLineCodecFactory(Charset
