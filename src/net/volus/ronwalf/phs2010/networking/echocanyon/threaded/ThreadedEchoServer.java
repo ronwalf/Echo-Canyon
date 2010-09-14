@@ -10,8 +10,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ThreadedEchoServer implements Runnable {
-
-	
 	
 	public static void main(String args[]) throws IOException {
 		ServerSocket acceptor = new ServerSocket(new Integer(args[0]));

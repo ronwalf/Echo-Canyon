@@ -9,7 +9,7 @@
 
 
   <path id="main.class.path">
-    <pathelement location="lib/mina/mina-core-1.1.7.jar"/>
+    <pathelement location="lib/mina/mina-core-2.0.0-RC1.jar"/>
     <pathelement location="lib/slf4j/slf4j-api-1.6.1.jar"/>
     <pathelement location="lib/slf4j/slf4j-jdk14-1.6.1.jar"/>
   </path>
