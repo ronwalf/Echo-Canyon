@@ -28,7 +28,7 @@
   </path>
 
   <path id="test.class.path">
-    <path id="main.class.path"/>
+    <path refid="main.class.path"/>
     <pathelement location="${main.build}"/>
     <pathelement location="lib/junit-4.8.2.jar"/>
   </path>
@@ -103,9 +103,11 @@
 
   <target name="async-server" depends="build-main">
     
-    <java classname="${ns.base}.async.MinaEchoServer"
-      classpath="${test.class.path}"
-      failonerror="true"/>
+    <java classname="${ns.base}.async.MinaEchoServer" fork="true"
+      failonerror="true">
+      <classpath refid="test.class.path"/>
+      <arg value="${server.port}"/>
+    </java>
   </target>
 
 </project>
