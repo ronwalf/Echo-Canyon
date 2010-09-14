@@ -80,14 +80,15 @@ public class ThreadedEchoBomb implements Runnable {
 	
 	public static void main(String[] args) throws IOException {
 	
-			String host = "localhost";//"10.144.5.93";
-			int port = 2002;//4444;
+			String host = args[0];
+			int port = new Integer(args[1]);
 			
+			final int bthreads = new Integer(args[2]);
+			final int bmesgs = new Integer(args[3]);
+			final MessageGenerator gen = new MessageGenerator(bmesgs);
 			
-			
-			for (int i = 0; i < 100; i++) {
-				ThreadedEchoBomb client = new ThreadedEchoBomb(host, port, 
-						new MessageGenerator());
+			for (int i = 0; i < bthreads; i++) {
+				ThreadedEchoBomb client = new ThreadedEchoBomb(host, port, gen);
 				new Thread(client).start();
 			}
 			
