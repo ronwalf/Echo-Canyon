@@ -30,6 +30,8 @@ public class EchoBomb1 {
 		
 		for (String msg : gen) {
 			writer.write(msg + "\r\n");
+			// Gotta flush when you're done - Java might just sit around waiting for more data.
+			writer.flush();
 			String recv = reader.readLine();
 			if (!recv.endsWith(msg)) {
 				System.err.println("Bad server response!");
@@ -39,9 +41,9 @@ public class EchoBomb1 {
 		
 		long end_time = System.currentTimeMillis();
 		long elapsed = end_time - start_time;
-		double rate = ((double) bmesgs) / ((double) elapsed);
+		long rate = 1000 * bmesgs / elapsed;
 		
-		System.out.println( "Elapsed time: " + elapsed );
+		System.out.println( "Elapsed time: " + elapsed + " millis");
 		System.out.println( "Message rate: " + rate );
 		
 	}
