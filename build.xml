@@ -70,6 +70,7 @@
     <zip destfile="EchoCanyon.zip">
       <zipfileset dir="." prefix="EchoCanyon">
         <include name="build.xml"/>
+        <include name="build.properties"/>
         <include name="README"/>
         <include name="LICENSE"/>
         <include name=".classpath"/>
