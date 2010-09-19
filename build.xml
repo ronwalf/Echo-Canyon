@@ -133,9 +133,20 @@
     </java>
   </target>
 
-  <target name="async-server" depends="build-main">
-    
-    <java classname="${ns.base}.async.MinaEchoServer" fork="true"
+  <target name="aserver">
+    <property name="server.class" value="${ns.base}.async.MinaEchoServer"/>
+    <antcall target="server"/>
+  </target>
+
+  <target name="tserver">
+    <property name="server.class" value="${ns.base}.threaded.ThreadedEchoServer"/>
+    <antcall target="server"/>
+  </target>
+
+
+  <target name="server" depends="build-main">
+    <property name="server.class" value="${ns.base}.threaded.ThreadedEchoServer"/>
+    <java classname="${server.class}" fork="true"
       failonerror="true">
       <classpath refid="test.class.path"/>
       <arg value="${server.port}"/>
