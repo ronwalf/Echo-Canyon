@@ -154,4 +154,27 @@
     </java>
   </target>
 
+  <target name="aproxy">
+    <property name="proxy.class" value="${ns.base}.async.MinaProxyServer"/>
+    <antcall target="proxy"/>
+  </target>
+
+  <target name="tproxy">
+    <property name="proxy.class" value="${ns.base}.threaded.ThreadedProxyServer"/>
+    <antcall target="proxy"/>
+  </target>
+
+
+  <target name="proxy" depends="build-main">
+    <property name="proxy.class" value="${ns.base}.threaded.ThreadedProxyServer"/>
+    <java classname="${proxy.class}" fork="true"
+      failonerror="true">
+      <classpath refid="test.class.path"/>
+      <arg value="${proxy.port}"/>
+      <arg value="${proxy.server.host}"/>
+      <arg value="${proxy.server.port}"/>
+    </java>
+  </target>
+
+
 </project>

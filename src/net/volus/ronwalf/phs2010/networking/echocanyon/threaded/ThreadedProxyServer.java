@@ -14,7 +14,7 @@ public class ThreadedProxyServer {
 		// TODO: Reader and Writer for server socket
 		// Maybe keep socket around, too?
 		
-		public ServerHandler(Socket socket) {
+		public ServerHandler(Socket socket) throws IOException {
 			// Initialize members.
 		}
 		
