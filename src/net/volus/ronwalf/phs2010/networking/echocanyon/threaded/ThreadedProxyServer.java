@@ -2,6 +2,7 @@ package net.volus.ronwalf.phs2010.networking.echocanyon.threaded;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Queue;
 
 public class ThreadedProxyServer {
@@ -20,6 +21,7 @@ public class ThreadedProxyServer {
 		public void handleMessage( ClientHandler client, String msg ) throws IOException {
 			synchronized(queue) {
 				// add it to queue, send it
+				// Always remember to flush (and lines end with \r\n)
 			}
 		}
 		
@@ -46,22 +48,24 @@ public class ThreadedProxyServer {
 		// TODO class members:
 		// Reader, writer, server handler
 		
-		public ClientHandler(Socket socket, ServerHandler server) {
+		public ClientHandler(Socket socket, ServerHandler server) throws IOException {
 			// TODO
 		}
 		
 		public void handleMessage(String msg) {
 			// Should be easy
+			// Always remember to flush 
+			// (plus, lines on the internet end with "\r\n")
 		}
 		
 		public void run() {
-			// TODO Auto-generated method stub
-			
+			// loop while readLine() doesn't return null
+			//  call server.handleMessage() with self and message
 		}
 		
 	}
 	
-	public static void main(String... args) {
+	public static void main(String... args) throws IOException, UnknownHostException {
 		int localPort = Integer.parseInt(args[0]);
 		String serverHost = args[1];
 		int remotePort = Integer.parseInt(args[2]);
@@ -78,6 +82,7 @@ public class ThreadedProxyServer {
 			// accept connection
 			// create ClientHandler object with connection and server
 			// start client handler thread.
+			// close client socket if creating it caused an io exception
 		}
 	}
 	
